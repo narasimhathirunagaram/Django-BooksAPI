@@ -1,4 +1,4 @@
-<!-- templates/book_list.html -->
+<!-- templates/books_list.html -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,5 +26,11 @@
             {% endfor %}
         </tbody>
     </table>
+    <h2>Add a New Book</h2>
+    <form method="post" action="{% url 'book-list' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Book</button>
+    </form>
 </body>
 </html>
